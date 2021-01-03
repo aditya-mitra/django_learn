@@ -13,14 +13,15 @@ venv\Scripts\activate # WINDOWS
 
 - To put all *dependencies* in **requirements.txt**
 ```
-pip freeze > requiremenets.txt
+pip freeze > requirements.txt
 ```
 
 
 ## Notes
 
 - `pip` command works when the virtual env is activated
-### Strucuturing
+
+### Structuring
 
 - core app functionalities *(like amdin, models)* should be kept in a `core` folder
 - functionalities which vary *(like serializers, urls, views)* should be kept in its own **named** folder
