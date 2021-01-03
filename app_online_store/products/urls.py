@@ -6,7 +6,7 @@ from products.views import (
     product_detail,
     ManufacturerListView,
     ManufacturerDetailView,
-    manufacturer_list
+    manufacturer_list,
 )
 
 urlpatterns = [
@@ -14,5 +14,5 @@ urlpatterns = [
     path("products/<int:pk>", product_detail, name="product_detail"),
     path("manus", ManufacturerListView.as_view(), name="manu_list"),
     path("manus/<int:pk>", ManufacturerDetailView.as_view(), name="manu_detail"),
-    path("manudetail/<int:pk>",manufacturer_list,name="manu_json_list")
+    path("manudetail/<int:pk>", manufacturer_list, name="manu_json_list"),
 ]

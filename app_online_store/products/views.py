@@ -5,6 +5,7 @@ from django.views.generic.detail import DetailView
 
 from products.models import Manufacturer, Product
 
+
 def manufacturer_list(request, pk):
     try:
         manu = Manufacturer.objects.get(pk=pk)
@@ -12,14 +13,13 @@ def manufacturer_list(request, pk):
         data = {
             "name": manu.name,
             "location": manu.location,
-            "products": list(products.values())
+            "products": list(products.values()),
         }
         response = JsonResponse(data)
     except Manufacturer.DoesNotExist:
-        response = JsonResponse({
-            "ERROR": "MANU NOT found"
-        })
+        response = JsonResponse({"ERROR": "MANU NOT found"})
     return response
+
 
 class ManufacturerListView(ListView):
     model = Manufacturer
@@ -59,6 +59,7 @@ def product_detail(request, pk):
             status=404,
         )
     return response
+
 
 class ProductListView(ListView):
     model = Product
