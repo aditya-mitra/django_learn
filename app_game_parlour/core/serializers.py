@@ -1,5 +1,22 @@
+from datetime import datetime, timezone
+from django.utils.timesince import timesince
 from rest_framework import serializers
-from core.models import Player
+
+from core.models import Player, Game
+
+
+class GameSerializer(serializers.ModelSerializer):
+    time_since_publication = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Game
+        exclude = ("updated_at",)
+
+    def get_time_since_publication(self, obj):
+        created_at = obj.created_at
+        now = datetime.now(timezone.utc)
+        time_delta = timesince(created_at, now=now)
+        return time_delta
 
 
 class PlayerSerializer(serializers.Serializer):
