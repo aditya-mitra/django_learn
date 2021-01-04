@@ -16,7 +16,6 @@ venv\Scripts\activate # WINDOWS
 pip freeze > requiremenets.txt
 ```
 
-
 ## Notes
 
 - `pip` command works when the virtual env is activated
@@ -32,6 +31,13 @@ This gives a json view of the model (which has to retreived).
 *Problems*
 - Images only have the name (and not the path)
 - Foreign Relations only have the primary key in `objects.all`
+
+### rest_framework serializers.Serializer
+
+Each of the fiels has to be validated individually against the model.
+Also each of the field, *that are to be serialized* has to be redeclared (if not already declared in the model class) in the serializer class
+
+It introduces a custom serializer.
 
 ## Apps
 ### django_app_online_store
