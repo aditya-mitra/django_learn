@@ -25,7 +25,7 @@ pip freeze > requirements.txt
 - core app functionalities *(like amdin, models)* should be kept in a `core` folder
 - functionalities which vary *(like serializers, urls, views)* should be kept in its own **named** folder
 
-### django http.JsonResponse
+### django `http.JsonResponse`
 
 This gives a json view of the model (which has to retreived).
 
@@ -33,12 +33,15 @@ This gives a json view of the model (which has to retreived).
 - Images only have the name (and not the path)
 - Foreign Relations only have the primary key in `objects.all`
 
-### rest_framework serializers.Serializer
+### rest_framework `serializers.Serializer`
 
 Each of the fiels has to be validated individually against the model.
 Also each of the field, *that are to be serialized* has to be redeclared (if not already declared in the model class) in the serializer class
 
 It introduces a custom serializer.
+
+[Decorator View Function](https://github.com/aditya-mitra/django_learn/blob/main/app_game_parlour/core/views.py#L10)
+[API View Class[(https://github.com/aditya-mitra/django_learn/blob/5f5ffbf8d4dfee1ea75883e5118a7839d5738cee/app_game_parlour/core/views.py#L39)
 
 ## Apps
 ### django_app_online_store
