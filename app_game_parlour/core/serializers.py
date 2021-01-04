@@ -5,20 +5,6 @@ from rest_framework import serializers
 from core.models import Player, Game
 
 
-class GameSerializer(serializers.ModelSerializer):
-    time_since_publication = serializers.SerializerMethodField()
-
-    class Meta:
-        model = Game
-        exclude = ("updated_at",)
-
-    def get_time_since_publication(self, obj):
-        created_at = obj.created_at
-        now = datetime.now(timezone.utc)
-        time_delta = timesince(created_at, now=now)
-        return time_delta
-
-
 class PlayerSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField()
@@ -33,3 +19,23 @@ class PlayerSerializer(serializers.Serializer):
         instance.player_id = validated_data.get("player_id", instance.player_id)
         instance.save()
         return instance
+
+
+class GameSerializer(serializers.ModelSerializer):
+    time_since_publication = serializers.SerializerMethodField()
+    # fill this field using the `get_time_since_publication` method
+
+    player = PlayerSerializer(read_only=True)
+    # this is not ideal because we will need to fill the entire detail of the player during post (creating a new game)
+
+    # player = serializers.HyperlinkedRelatedField(read_only=True,view_name="player-details")
+
+    class Meta:
+        model = Game
+        exclude = ("updated_at",)
+
+    def get_time_since_publication(self, obj):
+        created_at = obj.created_at
+        now = datetime.now(timezone.utc)
+        time_delta = timesince(created_at, now=now)
+        return time_delta
