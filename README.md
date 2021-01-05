@@ -16,6 +16,24 @@ venv\Scripts\activate # WINDOWS
 pip freeze > requirements.txt
 ```
 
+- To start a new project
+```
+django-admin startproject projname
+```
+
+- To start a new app
+```
+django-admin startapp apname
+```
+Then **add this app** to `settings.py`.
+
+- To create superuser
+```
+python manage.py createsuperuser
+```
+The *email* field can be left blank.
+
+
 ## Apps
 ### django_app_online_store
 
