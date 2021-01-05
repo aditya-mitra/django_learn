@@ -31,3 +31,6 @@ It introduces a custom serializer.
 
 [Decorator View Function](https://github.com/aditya-mitra/django_learn/blob/main/app_game_parlour/core/views.py#L10)
 [API View Class[(https://github.com/aditya-mitra/django_learn/blob/5f5ffbf8d4dfee1ea75883e5118a7839d5738cee/app_game_parlour/core/views.py#L39)
+
+
+The `serializer.save()` method is called on the database and not the serializer, so the lhs has to be the field_name in the model and not in the seralizer.

@@ -1,4 +1,10 @@
-from rest_framework import generics, mixins
+from rest_framework import (
+    generics,
+    # mixins,
+    permissions,
+    exceptions,
+)
+
 from rest_framework.generics import get_object_or_404
 
 from core.seraializers import EBookSerializer, ReviewSerializer
@@ -12,23 +18,35 @@ class EBookListCreateAPIView(generics.ListCreateAPIView):
         "id"
     )  # provide  - sign to reverse the ordering
     serializer_class = EBookSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class EBookDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = EBooks.objects.all()
     serializer_class = EBookSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class ReviewCreateAPIView(generics.CreateAPIView):
     queryset = Reviews.objects.all()
     serializer_class = ReviewSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
         pk = self.kwargs.get("ebook_pk")
         ebook = get_object_or_404(EBooks, pk=pk)
 
         review_author = self.request.user
-        serializer.save(ebook=ebook, review_author=review_author)
+        review = Reviews.objects.filter(ebook=ebook, reviewer=review_author)
+
+        if review.exists():
+            raise exceptions.ValidationError(
+                "you can add another review for the same ebook"
+            )
+
+        serializer.save(
+            ebook=ebook, reviewer=review_author
+        )  # the `serializer.save()` method is directly related to the database, so the lhs has to be the field_name in the model and not in the seralizer
 
 
 class ReviewDetailView(generics.RetrieveUpdateDestroyAPIView):

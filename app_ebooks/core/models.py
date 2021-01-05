@@ -27,6 +27,7 @@ class Reviews(models.Model):
     rating = models.PositiveSmallIntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
+    say = models.TextField(blank=True)
     ebook = models.ForeignKey(EBooks, on_delete=models.CASCADE, related_name="reviews")
 
     class Meta:

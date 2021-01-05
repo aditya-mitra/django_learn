@@ -9,12 +9,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Reviews
-        fields = (
-            "created_at",
-            "updated_at",
-            "review_author",
-            "rating",
-        )
+        fields = ("id", "created_at", "updated_at", "review_author", "rating", "say")
 
 
 class EBookSerializer(serializers.ModelSerializer):
@@ -24,6 +19,7 @@ class EBookSerializer(serializers.ModelSerializer):
     class Meta:
         model = EBooks
         fields = (
+            "id",
             "name",
             "completed",
             "author",
