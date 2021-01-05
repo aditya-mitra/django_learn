@@ -8,7 +8,7 @@ class EBooks(models.Model):
     completed = models.BooleanField(default=True)
     author = models.CharField(max_length=100)
     description = models.TextField()
-    publication_date = models.DateTimeField()
+    publication_date = models.DateField()
 
     class Meta:
         verbose_name = (
