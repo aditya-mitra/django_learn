@@ -5,14 +5,14 @@ from core.models import EBooks, Reviews
 
 class ReviewSerializer(serializers.ModelSerializer):
 
-    reviewing_author = serializers.StringRelatedField(read_only=True)
+    review_author = serializers.StringRelatedField(read_only=True)
 
     class Meta:
         model = Reviews
         fields = (
             "created_at",
             "updated_at",
-            "reviewer",
+            "review_author",
             "rating",
         )
 

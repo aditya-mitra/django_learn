@@ -2,6 +2,13 @@
 
 - `pip` command works when the virtual env is activated
 
+### Tips
+
+- To know more about the `class` you are inheriting, it is better to **go to definition** or **ctrl + click** to know more about it
+
+*It is better to do so because it readable and provides the necessary information on what you are doing*. *Also useful if you have no idea about why are you using that class*.
+*It can also give you information about which classes can be overriden*
+
 ### Structuring
 
 - core app functionalities *(like amdin, models)* should be kept in a `core` folder
