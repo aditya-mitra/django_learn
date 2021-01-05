@@ -9,6 +9,7 @@ from rest_framework.generics import get_object_or_404
 
 from core.seraializers import EBookSerializer, ReviewSerializer
 from core.models import EBooks, Reviews
+from core.pagination import My_Pagination
 
 
 class EBookListCreateAPIView(generics.ListCreateAPIView):
@@ -19,6 +20,7 @@ class EBookListCreateAPIView(generics.ListCreateAPIView):
     )  # provide  - sign to reverse the ordering
     serializer_class = EBookSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    pagination_class = My_Pagination
 
 
 class EBookDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
