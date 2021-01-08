@@ -35,7 +35,19 @@ The *email* field can be left blank.
 
 
 ## Apps
-### django_app_online_store
+### app_online_store
 
  - Uses traditional django views
  - No rest_framework involved
+ 
+ ### app_game_parlour
+ 
+ - Using `serializers.Serializer` and `serailizers.ModelSerializer`
+ - Using `@api_view()` function decorator and `APIView` class
+
+### app_ebooks
+
+- Generic Views and and Mixins
+- Basic `permissions.isAuthenticated` and `permissions.isAuthenticatedOrReadOnly`
+- Basic `PageNumberPagination`
+
