@@ -48,6 +48,6 @@ The *email* field can be left blank.
 ### app_ebooks
 
 - Generic Views and and Mixins
-- Basic `permissions.isAuthenticated` and `permissions.isAuthenticatedOrReadOnly`
+- Basic `permissions.isAuthenticated` and `permissions.isAuthenticatedOrReadOnly` and using the *auth user model*
 - Basic `PageNumberPagination`
 

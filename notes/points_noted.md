@@ -2,6 +2,11 @@
 
 - `pip` command works when the virtual env is activated
 
+- When using the **apps.py** of any django-app, don't forget to add the *name of the class* in **__init__.py** of that django-app
+```py
+default_app_config = 'profiles.apps.ProfilesConfig'
+```
+
 ### Tips
 
 - To know more about the `class` you are inheriting, it is better to **go to definition** or **ctrl + click** to know more about it
