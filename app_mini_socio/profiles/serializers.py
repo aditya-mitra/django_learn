@@ -15,7 +15,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 class ProfileColourSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = "colour"
+        fields = ("colour",)
 
 
 class ProfileStatusSerializer(serializers.ModelSerializer):
