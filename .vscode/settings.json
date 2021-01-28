@@ -2,5 +2,6 @@
     "python.formatting.provider": "black",
     "python.linting.pylintArgs": [
         "--load-plugins=pylint_django",
-    ]
+    ],
+    "python.linting.pylintEnabled": true
 }
