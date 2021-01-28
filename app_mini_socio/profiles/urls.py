@@ -8,8 +8,8 @@ from profiles.views import (
 )
 
 router = routers.DefaultRouter()
-router.register("profiles", ProfileListViewset)
-router.register("status", ProfileStatusViewset)
+router.register("profiles", ProfileListViewset, basename="profiles")
+router.register("status", ProfileStatusViewset, basename="status")
 
 
 # profile_list = ProfileListViewset.as_view({"get": "list"})

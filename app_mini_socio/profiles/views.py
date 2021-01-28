@@ -21,9 +21,17 @@ class ProfileListViewset(
 
 
 class ProfileStatusViewset(viewsets.ModelViewSet):
-    queryset = ProfileStatus.objects.all()
     serializer_class = ProfileStatusSerializer
     permission_classes = [permissions.IsAuthenticated, IsOwnStatusOrReadOnly]
+
+    def get_queryset(self):
+        queryset = ProfileStatus.objects.all()
+        username = self.request.query_params.get("username", None)
+        if username is not None:
+            queryset = ProfileStatus.objects.all().filter(
+                user_profile__user__username=username
+            )
+        return queryset
 
     def perform_create(self, serializer):
         serializer.save(user_profile=self.request.user.profile)
