@@ -1,10 +1,11 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from profiles.views import ProfileListViewset
+from profiles.views import ProfileListViewset, ProfileStatusViewset
 
 router = routers.DefaultRouter()
 router.register("profiles", ProfileListViewset)
+router.register('status',ProfileStatusViewset)
 
 # profile_list = ProfileListViewset.as_view({"get": "list"})
 # profile_detail = ProfileListViewset.as_view({"get": "retrieve"})
