@@ -7,6 +7,5 @@ from profiles.models import Profile
 
 @receiver(post_save, sender=User)
 def saving_profile(sender, instance, created, **kwargs):
-    print("a user just got saved", created)
     if created:
         Profile.objects.create(user=instance)
