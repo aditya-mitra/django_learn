@@ -1,4 +1,4 @@
-from rest_framework import permissions, viewsets, mixins, generics
+from rest_framework import permissions, viewsets, mixins, generics, filters
 
 from profiles.models import Profile, ProfileStatus
 from profiles.serializers import (
@@ -18,6 +18,9 @@ class ProfileListViewset(
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [permissions.IsAuthenticated, IsOwnProfileOrReadOnly]
+
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["colour", "desc"]
 
 
 class ProfileStatusViewset(viewsets.ModelViewSet):
