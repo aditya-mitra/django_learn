@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from ..profiles.models import Profile, ProfileStatus
+from profiles.models import Profile, ProfileStatus
 
 
 class ProfileSerializer(serializers.ModelSerializer):

@@ -12,6 +12,16 @@ def request1():
 
     print("the responded data is", response.json())
 
+def request2():
+    token = 'Token e70d61107e43de571ce870ddf9a59f849b17144e'
+    headers = {'Authorization':token}
+
+    response = requests.get(BASE_URL+'/profiles/',headers=headers)
+
+    print("status code", response.status_code)
+
+    print("the responded data is", response.json())
+
 
 if __name__ == "__main__":
-    request1()
+    request2()
