@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.authtoken.models import Token
 
-from .models import ProfileStatus
+from profiles.models import ProfileStatus
 
 test_user = {
     "username": "testnonuser",
