@@ -12,6 +12,12 @@ source venv/bin/active # UNIX
 venv\Scripts\activate # WINDOWS
 ```
 
+- To install al _dependencies_ from **requirements.txt**
+
+```
+pip install -r requirements.txt
+```
+
 - To put all _dependencies_ in **requirements.txt**
 
 ```
