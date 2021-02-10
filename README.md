@@ -4,6 +4,12 @@ Starting again with django
 
 ## Commands
 
+- To create a virtual enviroment
+
+```
+python -m venv env_name
+```
+
 - To activate virtual environment
 
 ```
